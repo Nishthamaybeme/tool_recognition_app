@@ -1,12 +1,19 @@
 import streamlit as st
+import gdown
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 import numpy as np
 
+# Google Drive file ID
+model_url = 'https://drive.google.com/uc?id=1tYFPEJ6gg9w_9A93bCLvZ2A45a45xWJw'  # Modify with your file ID
+
+# Download the model from Google Drive
+gdown.download(model_url, 'my_model.h5', quiet=False)
+
 # Load the model (ensure the correct path and extension are used)
-model = load_model('E:/tensorflow website/streamlit/my_model.h5')
+model = load_model('my_model.h5')
 
 # Class labels (update according to your dataset's classes)
 class_labels = ['Gasoline Can', 'Hammer', 'Pebble', 'Pliers', 'Rope', 'Screw Driver', 'Tool Box', 'Wrench']  # Add more as needed
